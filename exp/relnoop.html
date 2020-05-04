@@ -4,7 +4,8 @@
 <h1>Why don’t you go back to the previous tab?</h1>
 <script>
   debugger;
-  
+	var referer = document.referrer;
+	
 	if (window.opener) {
 		opener.location = 'https://mathiasbynens.github.io/rel-noopener/#hax';
 		// Just `opener.location.hash = '#hax'` only works on the same origin.
