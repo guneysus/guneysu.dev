@@ -1,4 +1,4 @@
-window.addEventListener("DOMContentLoaded", function () {
+function init() {
   var avatar = document.querySelector("img.avatar");
   var profileCard = document.querySelector(".profile-card");
 
@@ -44,10 +44,10 @@ window.addEventListener("DOMContentLoaded", function () {
 
   const material = new THREE.MeshBasicMaterial({ color: 0x77b57d });
 
+  const cube = new THREE.Mesh(geometry, material);
   /*
-    const cube = new THREE.Mesh(geometry, material);
     scene.add( cube );
-    */
+  */
 
   camera.position.z = 2.85;
 
@@ -64,15 +64,17 @@ window.addEventListener("DOMContentLoaded", function () {
   };
 
   animate();
-
-  function onWindowResize() {
-    /*
-        camera.aspect = window.innerWidth / (window.innerHeight / 3);
-        camera.position = 2.5;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight / 3);        
-    */
-  }
-
   window.addEventListener("resize", onWindowResize);
+}
+window.addEventListener("DOMContentLoaded", function () {
+  setTimeout(init);
 });
+
+function onWindowResize() {
+  /*
+      camera.aspect = window.innerWidth / (window.innerHeight / 3);
+      camera.position = 2.5;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight / 3);        
+  */
+}
